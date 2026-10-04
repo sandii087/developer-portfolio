@@ -2,6 +2,8 @@
 
 A responsive, accessible personal portfolio centered on backend and full-stack development. The attached resume is the primary factual source; public GitHub repositories provide implementation detail. See `docs/source-audit.md` for evidence, selection decisions, and discrepancies.
 
+Live portfolio: [sandii087.github.io/developer-portfolio](https://sandii087.github.io/developer-portfolio/). Updates pushed to `main` are tested, built, and published automatically by GitHub Actions.
+
 ## Requirements and local development
 
 Node.js 20 or newer. There are no runtime or build dependencies to install.
@@ -25,11 +27,11 @@ npm start
 For canonical URLs, social sharing metadata, and a sitemap, set `SITE_URL` to the final public HTTPS address before building. The variable is optional for local development. On macOS/Linux:
 
 ```sh
-export SITE_URL=https://sandii087.github.io
+export SITE_URL=https://sandii087.github.io/developer-portfolio
 npm run build
 ```
 
-Use that address only if deliberately replacing the existing analytics portfolio. For a GitHub project site, include its repository path in `SITE_URL`. In PowerShell, use `$env:SITE_URL = 'https://sandii087.github.io'` before building.
+In PowerShell, use `$env:SITE_URL = 'https://sandii087.github.io/developer-portfolio'` before building.
 
 ## Deployment
 
@@ -39,7 +41,7 @@ This is a static site: upload **the contents of `dist/`**, including `assets/`, 
 - **GitHub Pages:** publish the contents of `dist/` using your Pages workflow or deployment branch. Asset URLs are relative, so both user sites and project subpaths work. The 404 page uses the deployment subpath supplied by `SITE_URL`. A ready-to-run workflow is included at `.github/workflows/deploy-pages.yml`; select GitHub Actions in the repository’s Pages settings.
 - **Other static hosting:** upload `dist/` intact. Keep the PDF and image assets in the `assets` directory.
 
-An owner-private Sites preview is created separately. Making it public or connecting a custom domain requires an explicit final hosting choice. Do not share the private preview with recruiters as though it were public.
+The public deployment uses GitHub Pages with HTTPS enforced. The existing analytics portfolio at the root GitHub Pages address remains separate.
 
 Recommended host configuration: enable HTTPS; use a short cache lifetime for HTML and a moderate lifetime for the unhashed CSS/JS files. No service worker or tracking scripts are installed.
 
@@ -77,4 +79,4 @@ npm run check:links
 
 The link check updates `docs/link-checks.json`. Third-party sites may return bot challenges, redirects, temporary cold starts, or require login. Review response content as well as status codes. The tests use a small DOM harness; they are **not browser or visual tests**. See `docs/qa-report.md` for completed checks and remaining manual checks.
 
-Before public launch, choose the final URL, review the mobile/desktop rendering and browser console, verify the LinkedIn profile through its browser challenge, and confirm that academic-record sharing permissions remain appropriate. No extra biographical details are needed to run the site.
+GitHub Pages deployment succeeded on October 4, 2026. The public page and its rendered content were verified in the browser. A complete desktop/mobile visual and console audit remains outstanding because browser credential protection blocked screenshot/console inspection. LinkedIn may require a browser challenge. No extra biographical details are needed to run the site.
