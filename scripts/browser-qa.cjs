@@ -14,6 +14,7 @@ const out = process.env.QA_OUTPUT || 'browser-qa-results';
     for (const width of [320, 390, 768, 1440]) {
       const context = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: 'light', reducedMotion: 'reduce', isMobile: width < 500, hasTouch: width < 500 });
       const page = await context.newPage();
+      page.setDefaultTimeout(10000);
       const errors = [];
       page.on('pageerror', e => errors.push(e.message));
       page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
@@ -21,6 +22,7 @@ const out = process.env.QA_OUTPUT || 'browser-qa-results';
       page.on('response', r => { if (r.status() >= 400 && r.url().startsWith(base)) errors.push(`${r.status()} ${r.url()}`); });
       const response = await page.goto(base, { waitUntil: 'networkidle' });
       assert.equal(response.status(), 200);
+      await page.screenshot({path:path.join(out, `${width}-initial.png`),fullPage:true});
       await page.keyboard.press('Tab');
       assert.equal(await page.locator(':focus').textContent(), 'Skip to content');
       await page.keyboard.press('Enter');

@@ -1,15 +1,14 @@
 name: Browser QA
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - scripts/browser-qa.cjs
-      - .github/workflows/browser-qa.yml
+  workflow_run:
+    workflows: [Deploy portfolio to GitHub Pages]
+    types: [completed]
 permissions:
   contents: read
 jobs:
   responsive-browser-checks:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
