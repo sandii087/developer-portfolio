@@ -1,0 +1,14 @@
+{
+  "name": "sandeep-yadav-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs --production",
+    "test": "node --test scripts/validate.test.mjs",
+    "check:links": "node scripts/check-links.mjs"
+  }
+}
