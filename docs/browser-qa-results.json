@@ -1,0 +1,43 @@
+{
+  "url": "https://sandii087.github.io/developer-portfolio/",
+  "checkedAt": "2026-10-04T22:54:26.185Z",
+  "results": [
+    {
+      "width": 320,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "width": 768,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "passed": true,
+      "consoleErrors": []
+    },
+    {
+      "width": 1440,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "passed": true,
+      "consoleErrors": []
+    }
+  ],
+  "javascriptDisabled": "passed"
+}

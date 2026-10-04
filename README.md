@@ -77,6 +77,6 @@ npm test
 npm run check:links
 ```
 
-The link check updates `docs/link-checks.json`. Third-party sites may return bot challenges, redirects, temporary cold starts, or require login. Review response content as well as status codes. The tests use a small DOM harness; they are **not browser or visual tests**. See `docs/qa-report.md` for completed checks and remaining manual checks.
+The link check updates `docs/link-checks.json`. Third-party sites may return bot challenges, redirects, temporary cold starts, or require login. Review response content as well as status codes. `npm test` uses a small DOM harness. Additional real-browser tests in `scripts/browser-qa.cjs` run through the Browser QA GitHub Actions workflow after successful deployments. See `docs/qa-report.md` for completed checks and remaining manual checks.
 
-GitHub Pages deployment succeeded on October 4, 2026. The public page and its rendered content were verified in the browser. A complete desktop/mobile visual and console audit remains outstanding because browser credential protection blocked screenshot/console inspection. LinkedIn may require a browser challenge. No extra biographical details are needed to run the site.
+GitHub Pages deployment succeeded on October 4, 2026. The public page and its rendered content were verified in the browser. Responsive browser checks now pass at 320, 390, 768, and 1440 pixels in both themes, with no website console errors. See `docs/qa-report.md` for the completed checks and evidence. LinkedIn may require a browser challenge. No extra biographical details are needed to run the site.
